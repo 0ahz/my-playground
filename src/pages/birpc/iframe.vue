@@ -11,6 +11,12 @@
 import { createBirpc } from 'birpc';
 import { onBeforeUnmount, onMounted } from 'vue';
 
+definePage({
+  meta: {
+    hideInMenu: true,
+  },
+});
+
 let rpc;
 
 const Alice = {

@@ -78,18 +78,20 @@ const routes2flattenMenus = (routes, parent) => {
 };
 
 const routes2treeMenus = (routes, parent) => {
-  return routes.map(r => {
-    const path = parent ? parent.path + '/' + r.path : r.path;
-    const name = parent
-      ? (r.name || path).replace(parent.path, '')
-      : r.name || path;
-    const menu = { path, name };
-    if (r.children) {
-      menu.children = routes2treeMenus(r.children, r);
-      expandedPaths.push(path);
-    }
-    return menu;
-  });
+  return routes
+    .map(r => {
+      const path = parent ? parent.path + '/' + r.path : r.path;
+      const name = parent
+        ? (r.name || path).replace(parent.path, '')
+        : r.name || path;
+      const menu = { path, name, meta: r.meta };
+      if (r.children) {
+        menu.children = routes2treeMenus(r.children, r);
+        expandedPaths.push(path);
+      }
+      return menu;
+    })
+    .filter(r => !r.meta?.hideInMenu);
 };
 
 const flattenMenus = routes2flattenMenus(routes);
