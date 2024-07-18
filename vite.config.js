@@ -36,6 +36,15 @@ export default defineConfig({
         },
       ],
     }),
+    {
+      name: 'hmr-demo',
+      enforce: 'post',
+      configureServer(server) {
+        server.ws.on('inc', async () => {
+          console.log('====');
+        });
+      },
+    },
   ],
   resolve: {
     alias: {

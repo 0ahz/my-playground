@@ -12,6 +12,7 @@
   "dependencies": {
     "@vueuse/core": "^10.11.0",
     "birpc": "^0.2.17",
+    "comlink": "^4.4.1",
     "radix-vue": "^1.9.1",
     "vue": "^3.4.31",
     "vue-router": "^4.4.0"
