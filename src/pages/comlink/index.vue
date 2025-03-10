@@ -12,7 +12,7 @@
     <div>counter1: {{ counter1 }}</div>
     <div
       v-if="isLoading"
-      class="absolute inset-0 flex flex-col justify-center bg-white/80"
+      class="bg-base-200/80 absolute inset-0 flex flex-col justify-center"
     >
       <span>loading...</span>
     </div>

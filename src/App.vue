@@ -1,15 +1,15 @@
 <template>
   <div v-if="!isInIframe" class="flex h-screen flex-col overflow-hidden">
-    <div class="flex flex-shrink-0 items-center gap-1 bg-gray-200">
+    <div class="flex flex-shrink-0 items-center gap-1">
       <img class="block h-5 w-5" src="@/assets/vite.svg" />
       <img class="block h-5 w-5" src="@/assets/vue.svg" />
       <h1 class="text-lg font-bold">My Playground</h1>
     </div>
     <div class="flex flex-1 flex-row overflow-hidden">
-      <div class="h-full flex-shrink-0 overflow-auto bg-gray-100">
+      <div class="h-full flex-shrink-0 overflow-auto">
         <TreeRoot
           v-slot="{ flattenItems }"
-          class="flex w-36 select-none list-none flex-col py-2"
+          class="flex w-36 list-none flex-col py-2 select-none"
           :items="treeMenus"
           :get-key="item => item.path"
           :default-expanded="expandedPaths"
@@ -28,8 +28,8 @@
                 class="pr-2"
                 :class="[
                   isExactActive && !item.value.children
-                    ? 'bg-gray-300 font-bold'
-                    : 'hover:bg-gray-200',
+                    ? 'bg-base-300 font-bold'
+                    : 'hover:bg-base-200',
                 ]"
                 :style="{ 'padding-left': `${item.level - 0.5}rem` }"
                 @click="
